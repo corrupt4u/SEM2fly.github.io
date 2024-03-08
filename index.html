@@ -1,191 +1,51 @@
-<!--
-	
-	Why are you here?
-	You're not supposed to be here.
-	Please leave.
-        Made by ripafterdark
--->
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>corrupt</title>
-    <link rel="shortcut icon" href="gengar.jpg" type="image/x-icon" />
-    <style>
-      body {
-        background-color: #080707;
-      }
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/imgs/inaya_pfp.gif">
+    
+    <!-- Title -->
+    <title>🌴 ・ Inaya</title>
 
-      canvas {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
+    <!-- Css -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
-      #profile-container {
-        width: 450px;
-        height: 450px;
-        margin: auto;
-        position: absolute;
-        top: 0; left: 0; bottom: 0; right: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px #FFFFFF;
-      }
+    <!-- Javascript -->
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
 
-      #profile-pic {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background-image: url('https://media.discordapp.net/attachments/1086656179628933151/1086693310556557403/giphy_50.gif');
-        background-size: cover;
-      }
+</head>
+<body>
 
-      #username {
-        font-size: 30px;
-        font-weight: bold;
-        color: #FFFFFF;
-        margin-top: 20px;
-        text-align: center;
-        font-family: 'Orbitron', sans-serif;
-        text-shadow: 0px 0px 10px #FFFFFF;
-        cursor: pointer;
-      }
+    <header>
+        <nav>
+            <div class="header_logo">
+                <img src="assets/imgs/inaya_pfp.gif" alt="" srcset="">
+            </div>
+            <div class="header_links">
+                <ul class="nav_links">
+                    <li class="nav_link"><a href="#">Home</a></li>
+                    <!-- <li class="nav_link"><a href="#">Shop</a></li> -->
+                    <!-- <li class="nav_link"><a href="#">Repos</a></li> -->
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-      #icons-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-      }
+    <section class="main">
+        <img src="assets/imgs/kaneki_pfp.gif" alt="" srcset="">
+        <span>Kaneki Web</span>
+        <p>15 years old, French & English developer.</p>
+        <ul>
+            <li><a target="_blank" href="https://discord.gg/JuEeGweHrb"><i class="fab fa-discord"></i></a></li>
+            <li><a target="_blank" href="https://github.com/KanekiWeb"><i class="fab fa-github"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UC-XII5SSqbMOF1UX3N0Gl8g"><i class="fab fa-youtube"></i></a></li>
+        </ul>
+    </section>
 
-      .icon {
-        width: 50px;
-        height: 50px;
-        margin: 0 15px;
-        background-size: cover;
-        transition: all 0.2s ease-in-out;
-      }
-
-      .icon:hover {
-        transform: scale(1.2);
-      }
-
-      #discord-icon {
-        background-image: url('image1.png');
-      }
-
-      #youtube-icon {
-        background-image: url('image2.png');
-      }
-
-      #website-icon {
-        background-image: url('image3.png');
-      }
-
-      @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-
-      @media only screen and (max-width: 600px) {
-        body {
-          background-size: auto 100%;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <canvas id="canvas"></canvas>
-
-    <div id="profile-container">
-      <div id="profile-pic"></div>
-      <div id="username" onclick="window.location.href='https://zurly.lol/'">SEM2fly.</div>
-      <div id="icons-container">
-        <a href="https://discord.com/users/1016046796042162348"><div class="icon" id="discord-icon"></div></a>
-        <a href="https://www.youtube.com/@S3M2fly"><div class="icon" id="youtube-icon"></div></a>
-        <a href="https://feds.lol/s3m"><div class="icon" id="website-icon"></div></a>
-      </div>
-    </div>
-
-    <script>
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
-        var width = canvas.width = window.innerWidth;
-        var height = canvas.height = window.innerHeight;
-      
-        var dots = [];
-        var numDots = 100;
-        var connectDistance = 200;
-        var maxSpeed = 0.5;
-      
-        function Dot(x, y) {
-          this.x = x;
-          this.y = y;
-          this.speedX = Math.random() * maxSpeed * 2 - maxSpeed;
-          this.speedY = Math.random() * maxSpeed * 2 - maxSpeed;
-        }
-      
-        Dot.prototype.move = function() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-      
-          if (this.x > width) {
-            this.x = 0;
-          } else if (this.x < 0) {
-            this.x = width;
-          }
-      
-          if (this.y > height) {
-            this.y = 0;
-          } else if (this.y < 0) {
-            this.y = height;
-          }
-        };
-      
-        Dot.prototype.draw = function() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, 2, 0, Math.PI * 2, false);
-          ctx.fill();
-        };
-      
-        function connectDots() {
-          for (var i = 0; i < numDots; i++) {
-            for (var j = i + 1; j < numDots; j++) {
-              var distance = Math.sqrt(
-                Math.pow(dots[i].x - dots[j].x, 2) + Math.pow(dots[i].y - dots[j].y, 2)
-              );
-              if (distance < connectDistance) {
-                ctx.strokeStyle = 'rgba(255, 255, 255, ' + (1 - distance / connectDistance) + ')';
-                ctx.beginPath();
-                ctx.moveTo(dots[i].x, dots[i].y);
-                ctx.lineTo(dots[j].x, dots[j].y);
-                ctx.stroke();
-              }
-            }
-          }
-        }
-      
-        function loop() {
-          ctx.clearRect(0, 0, width, height);
-          for (var i = 0; i < dots.length; i++) {
-            dots[i].move();
-            dots[i].draw();
-          }
-          connectDots();
-          requestAnimationFrame(loop);
-        }
-      
-        for (var i = 0; i < numDots; i++) {
-          dots.push(new Dot(Math.random() * width, Math.random() * height));
-        }
-      
-        loop();
-      </script>
-
-      </div>
-    </div>
-  </body>
+</body>
 </html>
